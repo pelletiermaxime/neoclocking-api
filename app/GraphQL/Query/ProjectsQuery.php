@@ -23,12 +23,26 @@ class ProjectsQuery extends Query
     public function args()
     {
         return [
-            
+            'limit' => [
+                'type' => Type::int(),
+                'defaultValue' => 25,
+                'description' => 'Limit results. Defaults to 25.'
+            ],
+            'number' => [
+                'type' => Type::string(),
+                'description' => 'Project number',
+            ],
         ];
     }
 
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
-        return Project::all();
+        $projectsQuery = Project::active();
+
+        if (isset($args['number'])) {
+            $projectsQuery = $projectsQuery->where('number', $args['number']);
+        }
+
+        return $projectsQuery->paginate($args['limit']);
     }
 }
