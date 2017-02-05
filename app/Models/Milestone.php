@@ -4,15 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * App\Models\Milestone
- *
- * @property integer $id
- * @property string $name
- *
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Milestone whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Milestone whereName($value)
- */
 class Milestone extends Model
 {
     /**
@@ -31,7 +22,6 @@ class Milestone extends Model
         'name',
         'project_id'
     ];
-
 
     /**
      * Get the related status.

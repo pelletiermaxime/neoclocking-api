@@ -53,6 +53,9 @@ class ProjectsQuery extends Query
             if ($field === 'tasks') {
                 $projectsQuery->with('tasks');
             }
+            if ($field === 'milestones') {
+                $projectsQuery->with('milestones');
+            }
         }
 
         return $projectsQuery->paginate($args['limit']);
