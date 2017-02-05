@@ -29,6 +29,9 @@ class ProjectType extends BaseType
             'max_time' => [
                 'type' => Type::int(),
             ],
+            'milestones' => [
+                'type' => Type::listOf(GraphQL::type('Milestone')),
+            ],
             'name' => [
                 'type' => Type::string(),
                 'description' => 'The project number'

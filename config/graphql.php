@@ -116,6 +116,7 @@ return [
     //
     'types' => [
         'Client' => 'App\GraphQL\Type\ClientType',
+        'Milestone' => 'App\GraphQL\Type\MilestoneType',
         'Project' => 'App\GraphQL\Type\ProjectType',
         'Task' => 'App\GraphQL\Type\TaskType',
     ],
