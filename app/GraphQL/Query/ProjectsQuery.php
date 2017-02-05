@@ -37,10 +37,22 @@ class ProjectsQuery extends Query
 
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
-        $projectsQuery = Project::active();
+        $fields = $info->getFieldSelection(3);
+
+        $projectsQuery = Project::query();
+        $projectsQuery->active();
 
         if (isset($args['number'])) {
-            $projectsQuery = $projectsQuery->where('number', $args['number']);
+            $projectsQuery->where('number', $args['number']);
+        }
+
+        foreach ($fields as $field => $keys) {
+            if ($field === 'client') {
+                $projectsQuery->with('client');
+            }
+            if ($field === 'tasks') {
+                $projectsQuery->with('tasks');
+            }
         }
 
         return $projectsQuery->paginate($args['limit']);

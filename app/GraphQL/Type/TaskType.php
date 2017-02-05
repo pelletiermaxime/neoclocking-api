@@ -6,11 +6,11 @@ use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Type as BaseType;
 use GraphQL;
 
-class ProjectType extends BaseType
+class TaskType extends BaseType
 {
     protected $attributes = [
-        'name' => 'Project',
-        'description' => 'Projects'
+        'name' => 'Task',
+        'description' => 'Tasks'
     ];
 
     public function fields()
@@ -18,41 +18,36 @@ class ProjectType extends BaseType
         return [
             'id' => [
                 'type' => Type::nonNull(Type::id()),
-                'description' => 'The id of the project'
+                'description' => 'The id of the task'
             ],
             'active' => [
                 'type' => Type::boolean(),
             ],
-            'client' => [
-                'type' => GraphQL::type('Client'),
+            'can_clock' => [
+                'type' => Type::boolean(),
             ],
-            'max_time' => [
+            'estimation' => [
+                'type' => Type::int(),
+            ],
+            'logged_time' => [
                 'type' => Type::int(),
             ],
             'name' => [
                 'type' => Type::string(),
-                'description' => 'The project number'
+                'description' => 'The task name',
             ],
             'number' => [
                 'type' => Type::string(),
-                'description' => 'The project number'
+                'description' => 'The task number',
             ],
-            'remaining_time' => [
+            'reference_number' => [
                 'type' => Type::int(),
             ],
             'require_comments' => [
                 'type' => Type::boolean(),
             ],
-            'tasks' => [
-                'type' => Type::listOf(GraphQL::type('Task')),
-                'description' => 'Project tasks',
-            ],
-            'type' => [
-                'type' => Type::string(),
-                'description' => 'The project number'
-            ],
-            'should_not_exceed' => [
-                'type' => Type::boolean(),
+            'revised_estimation' => [
+                'type' => Type::int(),
             ],
         ];
     }

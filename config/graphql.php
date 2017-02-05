@@ -42,7 +42,7 @@ return [
     // ]
     //
     'controllers' => \Folklore\GraphQL\GraphQLController::class.'@query',
-    
+
     // The name of the input that contain variables when you query the endpoint.
     // Some library use "variables", you can change it here. "params" will stay
     // the default for now but will be changed to "variables" in the next major
@@ -51,7 +51,7 @@ return [
 
     // Any middleware for the graphql route group
     'middleware' => [],
-    
+
     // Config for GraphiQL (https://github.com/graphql/graphiql).
     // To disable GraphiQL, set this to null.
     'graphiql' => [
@@ -115,7 +115,9 @@ return [
     // ]
     //
     'types' => [
-        'Project' => 'App\GraphQL\Type\ProjectType'
+        'Client' => 'App\GraphQL\Type\ClientType',
+        'Project' => 'App\GraphQL\Type\ProjectType',
+        'Task' => 'App\GraphQL\Type\TaskType',
     ],
 
     // This callable will received every Error objects for each errors GraphQL catch.
