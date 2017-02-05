@@ -179,17 +179,17 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     protected function getFullNameAttribute()
     {
-        return $this->present()->fullName;
+        return $this->first_name . ' ' . $this->last_name;
     }
 
     /**
      * Return a Gravatar Url for the user email
      * @return string
      */
-    public function gravatar()
+    public function getGravatarAttribute()
     {
         $hash = md5(strtolower($this->mail));
-        return "https://www.gravatar.com/avatar/" . $hash.'?d=mm';
+        return "https://www.gravatar.com/avatar/" . $hash . '?d=mm';
     }
 
     /**

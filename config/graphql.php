@@ -71,6 +71,7 @@ return [
             'query' => [
                 'projects' => 'App\GraphQL\Query\ProjectsQuery',
                 'tasks'    => 'App\GraphQL\Query\TasksQuery',
+                'users'    => 'App\GraphQL\Query\UsersQuery',
             ],
             'mutation' => [
                 'updateTask' => 'App\GraphQL\Mutation\UpdateTaskMutation',
@@ -99,6 +100,7 @@ return [
         'App\GraphQL\Type\MilestoneType',
         'App\GraphQL\Type\ProjectType',
         'App\GraphQL\Type\TaskType',
+        'App\GraphQL\Type\UserType',
     ],
 
     // This callable will received every Error objects for each errors GraphQL catch.
