@@ -29,8 +29,14 @@ class TaskType extends BaseType
             'estimation' => [
                 'type' => Type::int(),
             ],
+            'logEntries' => [
+                'type' => Type::listOf(GraphQL::type('LogEntry')),
+            ],
             'logged_time' => [
                 'type' => Type::int(),
+            ],
+            'milestone' => [
+                'type' => GraphQL::type('Milestone'),
             ],
             'name' => [
                 'type' => Type::string(),
@@ -39,6 +45,9 @@ class TaskType extends BaseType
             'number' => [
                 'type' => Type::string(),
                 'description' => 'The task number',
+            ],
+            'project' => [
+                'type' => GraphQL::type('Project'),
             ],
             'reference_number' => [
                 'type' => Type::int(),

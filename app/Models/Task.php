@@ -174,7 +174,7 @@ class Task extends Model
      */
     public function milestone()
     {
-        return $this->hasOne(Milestone::class);
+        return $this->belongsTo(Milestone::class);
     }
 
     /**

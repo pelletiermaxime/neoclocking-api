@@ -65,33 +65,12 @@ return [
     // parameter.
     'schema' => 'default',
 
-    // The schemas for query and/or mutation. It expects an array to provide
-    // both the 'query' fields and the 'mutation' fields. You can also
-    // provide directly an object GraphQL\Schema
-    //
-    // Example:
-    //
-    // 'schemas' => [
-    //     'default' => new Schema($config)
-    // ]
-    //
-    // or
-    //
-    // 'schemas' => [
-    //     'default' => [
-    //         'query' => [
-    //              'users' => 'App\GraphQL\Query\UsersQuery'
-    //          ],
-    //          'mutation' => [
-    //
-    //          ]
-    //     ]
-    // ]
-    //
+    // The schemas for query and/or mutation.
     'schemas' => [
         'default' => [
             'query' => [
                 'projects' => 'App\GraphQL\Query\ProjectsQuery',
+                'tasks'    => 'App\GraphQL\Query\TasksQuery',
             ],
             'mutation' => [
                 'updateTask' => 'App\GraphQL\Mutation\UpdateTaskMutation',
@@ -115,10 +94,11 @@ return [
     // ]
     //
     'types' => [
-        'Client' => 'App\GraphQL\Type\ClientType',
-        'Milestone' => 'App\GraphQL\Type\MilestoneType',
-        'Project' => 'App\GraphQL\Type\ProjectType',
-        'Task' => 'App\GraphQL\Type\TaskType',
+        'App\GraphQL\Type\ClientType',
+        'App\GraphQL\Type\LogEntryType',
+        'App\GraphQL\Type\MilestoneType',
+        'App\GraphQL\Type\ProjectType',
+        'App\GraphQL\Type\TaskType',
     ],
 
     // This callable will received every Error objects for each errors GraphQL catch.

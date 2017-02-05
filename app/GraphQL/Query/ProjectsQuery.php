@@ -12,7 +12,7 @@ class ProjectsQuery extends Query
 {
     protected $attributes = [
         'name' => 'projects',
-        'description' => 'A query'
+        'description' => 'Projects query'
     ];
 
     public function type()
